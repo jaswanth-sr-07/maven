@@ -1,20 +1,78 @@
 package com.example;
 
+import java.util.Scanner;
+
 public class App {
 
+    // Addition
     public static int add(int a, int b) {
         return a + b;
     }
 
+    // Subtraction
     public static int subtract(int a, int b) {
         return a - b;
     }
 
+    // Multiplication
+    public static int multiply(int a, int b) {
+        return a * b;
+    }
+
+    // Division
+    public static double divide(int a, int b) {
+
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+
+        return (double) a / b;
+    }
+
     public static void main(String[] args) {
 
-        int result = add(5,3);
+        Scanner sc = new Scanner(System.in);
 
-        System.out.println("Addition Result: " + result);
+        System.out.println("Simple Calculator");
+        System.out.println("------------------");
 
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+
+        System.out.println("\nChoose operation:");
+        System.out.println("1. Addition");
+        System.out.println("2. Subtraction");
+        System.out.println("3. Multiplication");
+        System.out.println("4. Division");
+
+        int choice = sc.nextInt();
+
+        switch (choice) {
+
+            case 1:
+                System.out.println("Result: " + add(a, b));
+                break;
+
+            case 2:
+                System.out.println("Result: " + subtract(a, b));
+                break;
+
+            case 3:
+                System.out.println("Result: " + multiply(a, b));
+                break;
+
+            case 4:
+                System.out.println("Result: " + divide(a, b));
+                break;
+
+            default:
+                System.out.println("Invalid choice");
+
+        }
+
+        sc.close();
     }
 }
